@@ -1,4 +1,4 @@
-import {Socket} from "../../vendor/phoenix";
+import {Socket} from "deps/phoenix/web/static/js/phoenix";
 import Reflux from "bower_components/reflux/dist/reflux";
 import Actions from "../Actions";
 
@@ -19,7 +19,7 @@ export default Reflux.createStore({
   },
 
   onJoin(channelName) {
-    var chan = this._socket.chan(channelName, {});
+    var chan = this._socket.channel(channelName, {});
 
     chan.join().receive("ok", () => {
       Actions.joined(channelName, chan);

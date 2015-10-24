@@ -23,7 +23,12 @@ exports.config = {
   },
 
   paths: {
-    watched: ["web/static", "test/static"],
+    watched: [
+      "deps/phoenix/web/static",
+      "deps/phoenix_html/web/static",
+      "web/static",
+      "test/static"
+    ],
     public: "priv/static"
   }
 };

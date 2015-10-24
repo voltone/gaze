@@ -18,7 +18,7 @@ defmodule Gaze.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Gaze, []},
-     applications: [:phoenix, :cowboy, :logger]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger]]
   end
 
   # Specifies which paths to compile per environment
@@ -29,9 +29,9 @@ defmodule Gaze.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.13"},
-     {:phoenix_live_reload, "~> 0.4", only: :dev},
-     {:phoenix_html, "~> 1.0"},
+    [{:phoenix, "~> 1.0.3"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:phoenix_html, "~> 2.1"},
      {:cowboy, "~> 1.0"}]
   end
 
