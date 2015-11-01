@@ -19,7 +19,11 @@ exports.config = {
   },
 
   conventions: {
-    vendor: []
+    // This option sets where we should place non-css and non-js assets in.
+    // By default, we set this to "/web/static/assets". Files in this directory
+    // will be copied to `paths.public`, which is "priv/static" by default.
+    assets: /^(web\/static\/assets)/
+    // vendor: []
   },
 
   paths: {
@@ -30,5 +34,26 @@ exports.config = {
       "test/static"
     ],
     public: "priv/static"
-  }
+  },
+
+  plugins: {
+    babel: {
+      // Do not use ES6 compiler in vendor code
+      ignore: [/web\/static\/vendor/]
+    },
+    elmBrunch: {
+      // elmFolder: 'web/static/elm',
+      mainModules: [
+        'web/static/elm/Gaze/System.elm',
+        'web/static/elm/Gaze.elm'
+      ]
+      // outputFolder: 'priv/static/js'
+    },
+  },
+
+  modules: {
+    autoRequire: {
+      "js/app.js": ["web/static/js/app"]
+    }
+  },
 };
